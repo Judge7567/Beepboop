@@ -13,8 +13,6 @@ button.onclick = function(){
 memesong.textContent = message
 
 }
-
-
 const female = document.querySelector(".female")
 const male = document.querySelector(".male")
 
