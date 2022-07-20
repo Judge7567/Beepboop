@@ -1,2 +1,5 @@
 body {
-    background-image:url('jetstreamsam.jpg');}
+    background-size: cover;
+    background-image:url('jetstreamsam.jpg');
+    
+}
