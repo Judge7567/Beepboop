@@ -20,11 +20,11 @@ const male = document.querySelector(".male")
 
 female.onclick = function() {
     const buttonMessage = document.querySelector('.start-message')
-    buttonMessage.textContent = "santa cruz.  how you doin?"
+    buttonMessage.textContent = "Thank you for selecting!"
     buttonMessage.style["color"] = "green"
 }
 male.onclick = function() {
     const buttonMessage = document.querySelector('.start-message')
-    buttonMessage.textContent = "santa cruz?"
+    buttonMessage.textContent = "Thank you for selecting!"
     buttonMessage.style["color"] = "green"
 }
