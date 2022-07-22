@@ -8,7 +8,7 @@
       (currentQuestion, questionNumber) => {
 
         // variable to store the list of possible answers
-        const answers = [];
+        const answers = [a,b,c];
 
         // and for each available answer...
         for(letter in currentQuestion.answers){
@@ -75,16 +75,16 @@
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: "Who invented JavaScript?",
+      question: "What is the best color of the alphabelt?",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
+        a: "7",
+        b: "amongus",
+        c: "no"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
-      question: "Which one of these is a JavaScript package manager?",
+      question: "",
       answers: {
         a: "Node.js",
         b: "TypeScript",
@@ -93,14 +93,14 @@
       correctAnswer: "c"
     },
     {
-      question: "Which tool can you use to ensure code quality?",
+      question: "What comes next?",
       answers: {
         a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
+        b: "123",
+        c: "c",
+        d: "what?"
       },
-      correctAnswer: "d"
+      correctAnswer: "c"
     }
   ];
 
