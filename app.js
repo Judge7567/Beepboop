@@ -13,7 +13,7 @@ console.log("E")
         (currentQuestion, questionNumber) => {
   
           // variable to store the list of possible answers
-          const answers = [];
+          const answers = [3];
   
           // and for each available answer...
           for(letter in currentQuestion.answers){
