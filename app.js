@@ -9,8 +9,6 @@
 
         
         for(letter in currentQuestion.answers){
-
-          // ...add an HTML radio button
           answers.push(
             `<label>
               <input type="radio" name="question${questionNumber}" value="${letter}">
@@ -99,11 +97,5 @@
       },
       correctAnswer: "c"
     }
-  ];
-
-  // Kick things off
-  buildQuiz();
-
-  // Event listeners
-  submitButton.addEventListener('click', showResults);
-})();
+  ]; buildQuiz();
+  submitButton.addEventListener('click', showResults);})();
