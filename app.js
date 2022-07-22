@@ -1,4 +1,4 @@
-(function(){
+(function(meme){
   function buildQuiz(){
     // variable to store the HTML output
     const output = [];
