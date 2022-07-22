@@ -35,7 +35,6 @@
     // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll('.answers');
 
-    // keep track of user's answers
     let numCorrect = 0;
 
     // for each question...
