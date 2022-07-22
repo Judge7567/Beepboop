@@ -84,13 +84,13 @@
       correctAnswer: "a"
     },
     {
-      question: "",
+      question: "did you say nerd?",
       answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
+        a: "Not nerd, node",
+        b: "yes",
+        c: "um actully..."
       },
-      correctAnswer: "c"
+      correctAnswer: "b"
     },
     {
       question: "What comes next?",
