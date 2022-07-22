@@ -1,16 +1,13 @@
 (function(meme){
   function buildQuiz(){
-    // variable to store the HTML output
-    const output = [];
+        const output = [];
 
-    // for each question...
-    myQuestions.forEach(
+        myQuestions.forEach(
       (currentQuestion, questionNumber) => {
 
-        // variable to store the list of possible answers
         const answers = [a,b,c];
 
-        // and for each available answer...
+        
         for(letter in currentQuestion.answers){
 
           // ...add an HTML radio button
