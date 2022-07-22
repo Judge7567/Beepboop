@@ -1,33 +1,117 @@
 console.log("E")
 
-let introField = document.querySelector(".intro-field")
-let button = document.querySelector("button")
 
 
-button.onclick = function(){
-    let intro = introField.value;
-    const memesong = document.querySelector('.response-to-send-message')
-    let message = "Memories broken The truth goes unspoken I’ve even forgotten my name I don’t know the season Or what is the reason I’m standing here holding my blade A desolate place Without any trace It’s only the cold wind I feel It’s me that I spite As I stand up and fight The only thing I know for real There will be blood-shed The man in the mirror nods his head The only one left Will ride upon the dragon’s back Because the mountains don’t give back what they take Oh no There will be blood-shed It’s the only thing I’ve ever known Losing my identity Wondering have I gone insane To find the truth in front of me I must climb this mountain rang Looking downward from this deadly height And never realizing why I fight"
-    memesong.style["background-color"] = "red"
-    console.log(message)
 
-    
-
-memesong.textContent = message
-
-}
-
-
-const female = document.querySelector(".female")
-const male = document.querySelector(".male")
-
-female.onclick = function() {
-    const buttonMessage = document.querySelector('.start-message')
-    buttonMessage.textContent = "Thank you for selecting!"
-    buttonMessage.style["color"] = "red"
-}
-male.onclick = function() {
-    const buttonMessage = document.querySelector('.start-message')
-    buttonMessage.textContent = "Thank you for selecting!"
-    buttonMessage.style["color"] = "red"
-}
+(function(){
+    function buildQuiz(){
+      // variable to store the HTML output
+      const output = [];
+  
+      // for each question...
+      myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+  
+          // variable to store the list of possible answers
+          const answers = [];
+  
+          // and for each available answer...
+          for(letter in currentQuestion.answers){
+  
+            // ...add an HTML radio button
+            answers.push(
+              `<label>
+                <input type="radio" name="question${questionNumber}" value="${letter}">
+                ${letter} :
+                ${currentQuestion.answers[letter]}
+              </label>`
+            );
+          }
+  
+          // add this question and its answers to the output
+          output.push(
+            `<div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join('')} </div>`
+          );
+        }
+      );
+  
+      // finally combine our output list into one string of HTML and put it on the page
+      quizContainer.innerHTML = output.join('');
+    }
+  
+    function showResults(){
+  
+      // gather answer containers from our quiz
+      const answerContainers = quizContainer.querySelectorAll('.answers');
+  
+      // keep track of user's answers
+      let numCorrect = 0;
+  
+      // for each question...
+      myQuestions.forEach( (currentQuestion, questionNumber) => {
+  
+        // find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  
+        // if answer is correct
+        if(userAnswer === currentQuestion.correctAnswer){
+          // add to the number of correct answers
+          numCorrect++;
+  
+          // color the answers green
+          answerContainers[questionNumber].style.color = 'lightgreen';
+        }
+        // if answer is wrong or blank
+        else{
+          // color the answers red
+          answerContainers[questionNumber].style.color = 'red';
+        }
+      });
+  
+      // show number of correct answers out of total
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    }
+  
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submit');
+    const myQuestions = [
+      {
+        question: "Who invented JavaScript?",
+        answers: {
+          a: "Douglas Crockford",
+          b: "Sheryl Sandberg",
+          c: "Brendan Eich"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Which one of these is a JavaScript package manager?",
+        answers: {
+          a: "Node.js",
+          b: "TypeScript",
+          c: "npm"
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Which tool can you use to ensure code quality?",
+        answers: {
+          a: "Angular",
+          b: "jQuery",
+          c: "RequireJS",
+          d: "ESLint"
+        },
+        correctAnswer: "d"
+      }
+    ];
+  
+    // Kick things off
+    buildQuiz();
+  
+    // Event listeners
+    submitButton.addEventListener('click', showResults);
+  })();
